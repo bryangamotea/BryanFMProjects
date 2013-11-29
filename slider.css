@@ -4,6 +4,9 @@ body {
 	margin:0;
 }
 
+.clear {
+	clear: both;
+}
 
 .container {
 	width: 960px;
@@ -17,7 +20,7 @@ body {
 }
 
 #banner {
-	box-shadow: 5px 5px 5px #999;
+	box-shadow: 3px 3px 3px #999;
 }
 
 #right {
@@ -86,10 +89,10 @@ body {
 
 #footer{
 	width: 100%;
-	clear: both;
-	padding: 90px 0px;
+	padding: 30px;
 	background-color: #000;
 	font-size: 13px;
+	display: inline-block;
 }
 
 
@@ -97,9 +100,9 @@ body {
 	vertical-align: middle;
 	color: white;
 	line-height: 0;
-	float: left;
-	margin: -20px 30px;
 	font-weight: 100;
+	float: left;
+	width: 25%;
 }
 
 .icon {
@@ -111,6 +114,7 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 	font-style: normal;
+	margin-left: 15px;
 }
 
 /* Buttons */
@@ -119,7 +123,7 @@ body {
 	border: 1px solid white;
 	margin-bottom: 10px;
 	padding: 5px;
-	box-shadow: 5px 5px 5px #999;
+	box-shadow: 3px 3px 3px #999;
 }
 
 .button:nth-child(1) {
@@ -147,6 +151,7 @@ body {
 	line-height: 0;
 	vertical-align: middle;
 	display: inline-block;
+	margin-left: 20px;
 }
 
 .play {
@@ -162,5 +167,5 @@ body {
 	padding: 20px;	
 	color: white;
 	border: solid 1px white;
-	box-shadow: 5px 5px 5px #999;
+	box-shadow: 3px 3px 3px #999;
 }
