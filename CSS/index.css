@@ -1,0 +1,121 @@
+
+body {
+	background-color: white;
+	font-family: helvetica;
+	line-height: 1em;
+}
+
+#container {
+	width:1100px;
+	margin: 0px auto;
+}
+
+/* This is the header part */
+
+#id_bar {
+	height: 25px;
+	background-color: #008B45;
+	margin: 0 auto;
+	color: white;
+}
+
+#leftidbar {
+	float: left;
+	margin-top: -10px;
+	margin-left: 160px;
+}
+
+#main_header {
+	height: 150px;
+	background-color: #3CB371;	
+}
+
+#logo {
+	margin: 40px 10%;
+	position: absolute;
+}
+
+#desc {
+	float: left;
+	margin: 60px 35%;
+	position: absolute;
+	color: white; 
+}
+
+#subheader {
+	background-color: #7CCD7C;
+	height: 40px;
+	word-spacing: 1px;
+	margin-top: -16px;
+}
+
+.menu {
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 9%;
+	font-size: 1.5em;
+}
+
+/* This is the body part  */
+
+#left {
+	float: left;
+	width: 60%;
+	margin: 20px auto;
+}
+
+#right {
+	float: right;
+	width: 25%;
+	margin:0 auto;
+	padding: 10px 10px;
+	line-height: 10px;
+	background-color: #CDC9C9;
+}
+
+.content1 {
+	margin-left: 30px;
+}
+
+#footer {
+	clear: both;
+	height: 200px;
+	background-color: #008B45;
+}
+
+#copyright {
+	color:#CCC;
+	line-height: 0px;
+	float: right;
+	margin: 20px 20px;
+}
+
+.footer_content {
+	line-height: 5px;
+	display: inline-block;
+	float: left;
+	margin-left: 150px;
+	color: white;
+	margin-top: 20px;
+}
+
+/* Separated formatting  */
+span {
+	color:green;
+}
+
+.indented_p {
+	padding: 10px;
+	margin-left: 40px;
+	border-left: solid 4px green;
+}
+
+.body_list {
+	font-size: 15px;
+}
+
+img {
+	width: 300px;
+	height: 70px;
+}

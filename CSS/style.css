@@ -1,0 +1,108 @@
+body {
+	background-color: #EBEBEB;
+	font-family: helvetica;
+	line-height: 2em;
+}
+
+#container {
+	margin: 0 auto;
+	width:960px;
+}
+
+/* This is the header part */
+
+#header {
+	height: 150px;
+	background-color: #00BFFF;
+	margin: 0 auto;
+}
+
+#logo {	
+	position: absolute;
+	margin: -50px 50px;
+}
+
+#jdi {
+	position: absolute;	
+	margin: 60px 350px;
+	font-family: impact, fantasy;
+}
+
+#navbar {
+	
+	height: 50px;
+	background-color: #D4D4D4;
+	margin-top: -25px;
+	margin-right: auto;
+	margin-left: auto;
+	word-spacing: 5em;
+	font-size: 25px;
+	color: #878787;
+}
+
+
+li {
+	display: inline-block;
+	margin: 10px;
+}
+
+/* This part is the body */
+#left {
+	float: left;
+	width: 60%;
+	line-height: 1.7em;
+}
+
+#heading {
+	color: #008080;
+}
+
+#right {
+	width: 30%;
+	margin: 20px auto;
+	background-color: #CDC9C9;
+	padding: 10px 10px;
+	border: solid 2px black;
+	float: right;
+}
+
+#right_pane {
+	line-height: 1px;
+}
+
+/* elementss on the right side */
+#subscribe {
+	margin-left:25px;	 
+}
+
+.rightpaneimg {
+	height: 20px;
+	width: 20px;
+}
+
+#rp2content {
+	line-height: 1em;
+	margin: 0 20px;
+}
+
+#rp3content {
+	line-height: .5em;
+	margin: 0 20px;
+}
+
+/* This is the footer */
+
+
+#footer {
+	height: 100px;
+	background-color: #5E5E5E;
+	margin: 0px auto;
+	color: white;
+	clear: both;
+	line-height: 5px;
+}
+
+#copyright {
+	float: left;
+	margin-left: 20px;
+}
