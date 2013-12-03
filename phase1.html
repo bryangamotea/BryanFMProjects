@@ -4,6 +4,9 @@
 		<title>Slider Page</title>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="slider.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script src = "slider.js"></script>
 	</head>
 	<body>
 		<!-- This is the header -->
@@ -31,11 +34,20 @@
 
 
 			<!-- This is the body -->
-<div class = "container">
-			<div id = "left">
-				<img id = "banner" src="../IMAGES/banner3.jpg" alt="">
-			</div>
 
+		
+		<div id = "container">
+			<div id = "left">
+
+					<span class = "nav-button" id = "left-but"><img src="../IMAGES/left.png" alt=""></span>
+					<span class = "nav-button" id = "right-but"><img src="../IMAGES/right.png" alt=""></span>
+
+				<div class="slider">				
+					<img class = "banner" src ="../IMAGES/banner3.jpg" alt="">
+					<img class = "banner" src = "../IMAGES/banner2.jpg" alt="">
+					<img class = "banner" src="../IMAGES/banner1.jpg" alt="">
+				</div>
+			</div>
 			<div id = "right">
 
 					<div class = "button">

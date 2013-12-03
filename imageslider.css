@@ -5,14 +5,14 @@
 	overflow: hidden;
 }
 
-.slider {
-	width: 960px;
-	height: 200px;
-}
-
 img {
 	height: 200px;
 	width: 300px;
+}
+
+.slider {
+	width: 960px;
+	height: 200px;
 }
 
 

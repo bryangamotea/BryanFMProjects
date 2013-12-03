@@ -10,8 +10,6 @@ $(document).ready(function() {
 
 		if (my_margin > -600) {
 			$(".slider").animate({"margin-left": next_margin},2000, function(){
-				// console.log($(this).css("margin-left"));
-		
 			
 			});
 		} 

@@ -13,22 +13,35 @@ body {
 	margin: 0px auto;
 }
 
-#left {
-	width: 60%;
-	margin: 30px auto;
-	float: left;
+#container {
+	width: 960px;
+	height: 435px;
+	margin: 0px auto;
 }
 
-#banner {
+.banner {
 	box-shadow: 3px 3px 3px #999;
+	display: inline;
+	width: 650px;	
+}
+
+#left {
+	width: 650px;
+	height: 435px;
+	margin: 30px auto;	
+	float: left;	
+	overflow: hidden;
+}
+
+.slider {
+	width: 2000px;	
+	height: 435px;
 }
 
 #right {
-	width: 27%;
-	display: block;
+	width: 30%;
 	margin: 30px auto;
 	float: right;
-
 }
 
 /* Header */
@@ -158,10 +171,24 @@ body {
 }
 
 #text_field {
-	height: 205px;
+	height: 180px;
 	background-color: #36ABAB;
 	padding: 20px;	
 	color: white;
 	border: solid 1px white;
 	box-shadow: 3px 3px 2px #999;
+}
+
+.nav-button {
+	position: absolute;
+	top: 45%;
+	display: none;
+}
+
+#container:hover .nav-button {
+	display: block;
+}
+
+#right-but {
+	right: 40%;
 }
