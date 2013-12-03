@@ -22,3 +22,22 @@ img {
 	width: 100px;
 }
  /* navigation button */
+ 
+ .container {
+	width: 100%;
+
+ }
+
+ .navbar {
+	width: 300px;
+ 	margin: 0 auto;
+ 	word-spacing: 13em;
+ }
+
+ #prev {
+ 	display: inline-block;
+ }
+
+ #next {
+ 	display: inline-block;
+ }
