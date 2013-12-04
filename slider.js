@@ -1,8 +1,9 @@
 $(document).ready(function() {
+
+$("#pause-but").hide();
 	
 var myInterval = null;
-	$("#pause-but").hide();
-
+// functions
 function onNextHandler() {
 			$(".slider").animate({"margin-left": "-100%"},500, function(){
 				$(".slider img:first-child").appendTo(".slider");
@@ -17,6 +18,10 @@ function onPreviousHandler() {
 
 			});
 }
+
+
+
+
 	// image sliding code
 	$("#right-but").click(onNextHandler);
 
@@ -48,8 +53,6 @@ function onPreviousHandler() {
 
 			myInterval = setInterval(onNextHandler,2000);
 
-		
-
 	});
 
 	$("#pause-but").click(function() {
@@ -57,6 +60,7 @@ function onPreviousHandler() {
 		$("#play-but").show(200);
 
 		clearInterval(myInterval);
-	});
+	});	
+
 
 });
