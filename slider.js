@@ -1,31 +1,30 @@
 $(document).ready(function() {
 	
-
+var myInterval = null;
 	$("#pause-but").hide();
 
-	
-	$("#right-but").click(function(){
-
-
+function onNextHandler() {
 			$(".slider").animate({"margin-left": "-100%"},500, function(){
 				$(".slider img:first-child").appendTo(".slider");
 				$(this).css("margin-left", "0px");
 			});
-	});
+}
 
-	$("#left-but").click(function(){
-
-
+function onPreviousHandler() {
 			$(".slider img:last-child").prependTo(".slider");
 			$(".slider").css({"margin-left": "-100%"});		
 			$(".slider").animate({"margin-left": "0px"}, 500, function(){
 
 			});
+}
+	// image sliding code
+	$("#right-but").click(onNextHandler);
 
-	});
+
+	$("#left-but").click(onPreviousHandler);
 
 
-
+	// image counter
 	$(".slider").tabs();
 
 	var TotImg = $(".slider > .banner").length
@@ -42,17 +41,14 @@ $(document).ready(function() {
 	}
 
 
-
+	// show and hide play/pause button
 	$("#play-but").click(function() {
 		$("#pause-but").show(200);
 		$("#play-but").hide(200);
 
-		setTimeout(function(){
-			$(".slider").animate({"margin-left": "-100%"},500, function(){
-				$(".slider img:first-child").appendTo(".slider");
-				$(this).css("margin-left", "0px");
-			});
-		});
+			myInterval = setInterval(onNextHandler,2000);
+
+		
 
 	});
 
@@ -60,6 +56,7 @@ $(document).ready(function() {
 		$("#pause-but").hide(200);
 		$("#play-but").show(200);
 
+		clearInterval(myInterval);
 	});
 
 });
