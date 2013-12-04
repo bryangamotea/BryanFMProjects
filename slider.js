@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
 $("#pause-but").hide();
+
+var autoSlide = false;
+var hover = false;
+var clck = false;
 	
 var myInterval;
 // functions
