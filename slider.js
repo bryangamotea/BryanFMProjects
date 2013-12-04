@@ -4,7 +4,6 @@ $("#pause-but").hide();
 
 var autoSlide = false;
 var hover = false;
-var clck = false;
 	
 var myInterval;
 // functions
@@ -26,16 +25,6 @@ function onPreviousHandler() {
 			});
 }
 
-	function onMouseLeave() {
-	clearInterval(myInterval);
-	myInterval = setInterval(onNextHandler,1000);
-}
-
-
-	function onMouseEnter() {
-	clearInterval(myInterval);
-
-}
 
 
 	// image sliding code
@@ -82,7 +71,14 @@ function onPreviousHandler() {
 	});	
 
 	
-	$(".slider").mouseenter(onMouseEnter);
+	$(".slider").mouseenter(function(){
+		if (autoSlide == !hover) {
+			$(".slider").animate({"margin-left": "-100%"},500, function(){
+				$(".slider img:first-child").appendTo(".slider");
+				$(this).css("margin-left", "0px");
+				setTimeout(4000);
+		}
+	});
 
 	$(".slider").mouseleave(onMouseLeave);
 
