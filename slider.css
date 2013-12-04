@@ -192,3 +192,19 @@ body {
 #right-but {
 	right: 40%;
 }
+
+#play-but {
+	top: 65%;
+	right: 44%;
+}
+
+#pause-but {
+	top: 65%;
+	right: 44%;
+}
+/* counter */
+
+#counter {
+	right: 42%;
+	top: 65%;
+}
