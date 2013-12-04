@@ -3,7 +3,6 @@ $(document).ready(function() {
 $("#pause-but").hide();
 
 var autoSlide = false;
-var onPress = false;
 var hover = false;
 
 var myInterval;
