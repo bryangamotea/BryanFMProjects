@@ -40,6 +40,7 @@ function slideshow() {
 				myInterval = setTimeout(slideshow,2000);
 	});
 }
+
 function slideshowPause() {	
 	$("#play-but").show(200);
 	$("#pause-but").hide(200);
