@@ -1,3 +1,5 @@
+// branch TIMEOUT
+
 $(document).ready(function() {
 
 $("#pause-but").hide();
@@ -23,6 +25,19 @@ function onPreviousHandler() {
 			$(".slider").animate({"margin-left": "0px"}, 500, function(){
 
 			});
+}
+
+function onPlayClick () {
+				$(".slider").animate({"margin-left": "-100%"},500, function(){
+				$(".slider img:first-child").appendTo(".slider");
+				$(this).css("margin-left", "0px");
+				myTimeout = setTimeout(2000);
+
+			});
+}
+
+function onPreviousClick () {
+	clearTimeout(myTimeout);
 }
 
 
@@ -56,29 +71,13 @@ function onPreviousHandler() {
 
 
 	// show and hide play/pause button
-	$("#play-but").click(function() {
-		$("#pause-but").show(200);
-		$("#play-but").hide(200);
+	$("#play-but").click(onPlayClick); 
 
-			myInterval = setInterval(onNextHandler,2000);
-
-	});
-
-	$("#pause-but").click(function() {
-		$("#pause-but").hide(200);
-		$("#play-but").show(200);
-		clearInterval(myInterval);
-	});	
+	$("#pause-but").click();
 
 	
-	$(".slider").mouseenter(function(){
-		if (autoSlide == !hover) {
-			$(".slider").animate({"margin-left": "-100%"},500, function(){
-				$(".slider img:first-child").appendTo(".slider");
-				$(this).css("margin-left", "0px");
-				setTimeout(4000);
-		}
-	});
+	$(".slider").mouseenter(onPreviousClick);
+		
 
 	$(".slider").mouseleave(onMouseLeave);
 
