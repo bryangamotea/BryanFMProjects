@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
 $("#pause-but").hide();
-	
+
 var myInterval;
+	
 // functions
 function onNextHandler() {
 
@@ -22,15 +23,24 @@ function onPreviousHandler() {
 			});
 }
 
-	function onMouseLeave() {
-	clearInterval(myInterval);
-	myInterval = setInterval(onNextHandler,1000);
+
+
+function slideshow() {
+
+	$("#play-but").hide(200);
+	$("#pause-but").show(200);
+
+		$(".slider").animate({"margin-left": "-100%"},500, function(){
+				$(".slider img:first-child").appendTo(".slider");
+				$(this).css("margin-left", "0px");
+				myInterval = setTimeout(slideshow,2000);
+	});
 }
-
-
-	function onMouseEnter() {
-	clearInterval(myInterval);
-
+function slideshowPause() {	
+	$("#play-but").show(200);
+	$("#pause-but").hide(200);
+	clearTimeout(myInterval);	
+	
 }
 
 
@@ -46,7 +56,7 @@ function onPreviousHandler() {
 	// image counter
 	$(".slider").tabs();
 
-	var TotImg = $(".slider > .banner").length
+	var TotImg = $(".slider > img").length
 	imgCounter(1,TotImg);
 
 	$(".slider").bind("tabselect", function(event, ui){
@@ -63,24 +73,9 @@ function onPreviousHandler() {
 
 
 	// show and hide play/pause button
-	$("#play-but").click(function() {
-		$("#pause-but").show(200);
-		$("#play-but").hide(200);
+	$("#play-but").click(slideshow);
 
-			myInterval = setInterval(onNextHandler,2000);
-
-	});
-
-	$("#pause-but").click(function() {
-		$("#pause-but").hide(200);
-		$("#play-but").show(200);
-		clearInterval(myInterval);
-	});	
-
-	
-	$(".slider").mouseenter(onMouseEnter);
-
-	$(".slider").mouseleave(onMouseLeave);
+	$("#pause-but").click(slideshowPause);	
 
 
 });
