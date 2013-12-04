@@ -2,16 +2,19 @@ $(document).ready(function() {
 
 $("#pause-but").hide();
 	
-var myInterval = null;
+var myInterval;
 // functions
 function onNextHandler() {
+
 			$(".slider").animate({"margin-left": "-100%"},500, function(){
 				$(".slider img:first-child").appendTo(".slider");
 				$(this).css("margin-left", "0px");
+
 			});
 }
 
 function onPreviousHandler() {
+
 			$(".slider img:last-child").prependTo(".slider");
 			$(".slider").css({"margin-left": "-100%"});		
 			$(".slider").animate({"margin-left": "0px"}, 500, function(){
@@ -19,7 +22,16 @@ function onPreviousHandler() {
 			});
 }
 
+	function onMouseLeave() {
+	clearInterval(myInterval);
+	myInterval = setInterval(onNextHandler,1000);
+}
 
+
+	function onMouseEnter() {
+	clearInterval(myInterval);
+
+}
 
 
 	// image sliding code
@@ -27,6 +39,8 @@ function onPreviousHandler() {
 
 
 	$("#left-but").click(onPreviousHandler);
+
+
 
 
 	// image counter
@@ -46,6 +60,8 @@ function onPreviousHandler() {
 	}
 
 
+
+
 	// show and hide play/pause button
 	$("#play-but").click(function() {
 		$("#pause-but").show(200);
@@ -58,9 +74,13 @@ function onPreviousHandler() {
 	$("#pause-but").click(function() {
 		$("#pause-but").hide(200);
 		$("#play-but").show(200);
-
 		clearInterval(myInterval);
 	});	
+
+	
+	$(".slider").mouseenter(onMouseEnter);
+
+	$(".slider").mouseleave(onMouseLeave);
 
 
 });
