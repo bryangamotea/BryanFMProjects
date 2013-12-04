@@ -1,3 +1,5 @@
+// MASTER
+
 $(document).ready(function() {
 
 $("#pause-but").hide();
