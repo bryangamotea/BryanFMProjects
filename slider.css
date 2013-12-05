@@ -182,7 +182,7 @@ body {
 .nav-button {
 	position: absolute;
 	top: 40%;
-	display: none;
+	display: block;
 }
 
 #container:hover .nav-button {
@@ -207,4 +207,5 @@ body {
 #counter {
 	right: 42%;
 	top: 65%;
+	display: block;
 }

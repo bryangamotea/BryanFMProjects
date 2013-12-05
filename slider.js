@@ -16,6 +16,13 @@ var page = 1;
 
 // functions
 function onNextHandler() {
+			page++;
+
+			if (page > TotImg) 
+			
+			page = 1;
+			$("#counter").text(page + "/" + TotImg)	
+			
 
 			$(".slider").animate({"margin-left": "-100%"},500, function(){
 				$(".slider img:first-child").appendTo(".slider");
@@ -25,6 +32,14 @@ function onNextHandler() {
 }
 
 function onPreviousHandler() {
+			page--;
+
+			if (page == 0)
+			
+			page = TotImg;
+			$("#counter").text(page + "/" + TotImg);
+	
+		
 
 			$(".slider img:last-child").prependTo(".slider");
 			$(".slider").css({"margin-left": "-100%"});		
@@ -34,6 +49,13 @@ function onPreviousHandler() {
 }
 
 function onPlayClick () {
+			page++;
+
+			if (page > TotImg) 
+			
+			page = 1;
+			$("#counter").text(page + "/" + TotImg)	
+
 				$(".slider").animate({"margin-left": "-100%"},1000, function(){
 				$(".slider img:first-child").appendTo(".slider");
 				$(this).css("margin-left", "0px");
@@ -53,40 +75,7 @@ function onPreviousClick () {
 
 
 	$("#left-but").click(onPreviousHandler);
-
-
-
-
-	// image counter
-
-
-
-	$("#left-but").click(function(){
 	
-			page--;
-
-			if (page == 0)
-			
-				page = TotImg;
-				$("#counter").text(page + "/" + TotImg);
-			
-
-	});
-
-	$("#right-but").click(function(){
-
-		page++;
-
-		if (page > TotImg) 
-			
-			page = 1;
-			$("#counter").text(page + "/" + TotImg)		
-		
-	});
-
-	
-
-
 
 	// show and hide play/pause button
 	$("#play-but").click(function(){
