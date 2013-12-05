@@ -2,12 +2,12 @@
 
 $(document).ready(function() {
 
-$("#pause-but").hide();
+		$("pause-but").hide();
 
 var autoSlide = false;
 var hover = false;
 	
-var myInterval;
+var myTimeout;
 // functions
 function onNextHandler() {
 
@@ -28,10 +28,10 @@ function onPreviousHandler() {
 }
 
 function onPlayClick () {
-				$(".slider").animate({"margin-left": "-100%"},500, function(){
+				$(".slider").animate({"margin-left": "-100%"},2000, function(){
 				$(".slider img:first-child").appendTo(".slider");
 				$(this).css("margin-left", "0px");
-				myTimeout = setTimeout(2000);
+				myTimeout = setTimeout(onPlayClick,2000);
 
 			});
 }
@@ -71,15 +71,49 @@ function onPreviousClick () {
 
 
 	// show and hide play/pause button
-	$("#play-but").click(onPlayClick); 
+	$("#play-but").click(function(){
 
-	$("#pause-but").click();
-
-	
-	$(".slider").mouseenter(onPreviousClick);
+		clearTimeout(myTimeout);
+		$("#play-but").hide();
+		$("#pause-but").show();
 		
+		if (autoSlide == autoSlide) {
+			
+				myTimeout = setTimeout(onPlayClick);
+			
+		}
 
-	$(".slider").mouseleave(onMouseLeave);
+	});
 
+
+
+	$("#pause-but").click(function (){
+
+		$("#pause-but").hide();
+		$("#play-but").show();
+		if (autoSlide == autoSlide) {
+			clearTimeout(myTimeout);
+			console.log("TIMEOUT");
+
+		};
+
+	});
+
+	$("#left").mouseenter(function(){
+		setTimeout(myTimeout);
+		if (hover == hover) {
+			clearTimeout(myTimeout);	
+			console.log("TIMEOUT");
+		}
+	});
+
+	$("#left").mouseleave(function(){
+		if (hover == hover && autoSlide == autoSlide) {
+			console.log("TIMEOUT");
+			clearTimeout(myTimeout);
+				
+		}
+		
+	});
 
 });
