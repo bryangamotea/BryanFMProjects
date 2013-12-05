@@ -10,6 +10,10 @@ var hover = false;
 	
 var myTimeout;
 
+var TotImg = $(".slider > .banner").length
+	
+var page = 1;
+
 // functions
 function onNextHandler() {
 
@@ -54,21 +58,33 @@ function onPreviousClick () {
 
 
 	// image counter
-	$(".slider").tabs();
 
-	var TotImg = $(".slider > .banner").length
-	imgCounter(1,TotImg);
 
-	$(".slider").bind("tabselect", function(event, ui){
-		var index = ui.index;
-		var imgNum = index + 1;
-		imgCounter(imgNum, TotImg)
+
+	$("#left-but").click(function(){
+	
+			page--;
+
+			if (page == 0)
+			
+				page = TotImg;
+				$("#counter").text(page + "/" + TotImg);
+			
+
 	});
 
-	function imgCounter(imgNum, imgCounter) {
-		$("#counter").text(imgNum + "/" + TotImg);
-	}
+	$("#right-but").click(function(){
 
+		page++;
+
+		if (page > TotImg) 
+			
+			page = 1;
+			$("#counter").text(page + "/" + TotImg)		
+		
+	});
+
+	
 
 
 

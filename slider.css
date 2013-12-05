@@ -182,7 +182,7 @@ body {
 .nav-button {
 	position: absolute;
 	top: 40%;
-	display: block;
+	display: none;
 }
 
 #container:hover .nav-button {
