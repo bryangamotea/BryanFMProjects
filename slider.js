@@ -1,16 +1,28 @@
-// MASTER
+// branch TIMEOUT
 
 $(document).ready(function() {
 
-$("#pause-but").hide();
+$("pause-but").hide();
 
 var autoSlide = false;
-var hover = false;
 
-var myInterval;
+var hover = false;
 	
+var myTimeout;
+
+var TotImg = $(".slider > .banner").length
+	
+var page = 1;
+
 // functions
 function onNextHandler() {
+			page++;
+
+			if (page > TotImg) 
+			
+			page = 1;
+			$("#counter").text(page + "/" + TotImg)	
+			
 
 			$(".slider").animate({"margin-left": "-100%"},500, function(){
 				$(".slider img:first-child").appendTo(".slider");
@@ -20,6 +32,14 @@ function onNextHandler() {
 }
 
 function onPreviousHandler() {
+			page--;
+
+			if (page == 0)
+			
+			page = TotImg;
+			$("#counter").text(page + "/" + TotImg);
+	
+		
 
 			$(".slider img:last-child").prependTo(".slider");
 			$(".slider").css({"margin-left": "-100%"});		
@@ -28,26 +48,26 @@ function onPreviousHandler() {
 			});
 }
 
+function onPlayClick () {
+			page++;
 
+			if (page > TotImg) 
+			
+			page = 1;
+			$("#counter").text(page + "/" + TotImg)	
 
-function slideshow() {
-
-	$("#play-but").hide(200);
-	$("#pause-but").show(200);
-
-		$(".slider").animate({"margin-left": "-100%"},500, function(){
+				$(".slider").animate({"margin-left": "-100%"},1000, function(){
 				$(".slider img:first-child").appendTo(".slider");
 				$(this).css("margin-left", "0px");
-				myInterval = setTimeout(slideshow,2000);
-	});
+				myTimeout = setTimeout(onPlayClick,1000);
+
+			});
 }
 
-function slideshowPause() {	
-	$("#play-but").show(200);
-	$("#pause-but").hide(200);
-	clearTimeout(myInterval);	
-	
+function onPreviousClick () {
+	clearTimeout(myTimeout);
 }
+
 
 
 	// image sliding code
@@ -55,33 +75,59 @@ function slideshowPause() {
 
 
 	$("#left-but").click(onPreviousHandler);
-
-
-
-
-	// image counter
-	$(".slider").tabs();
-
-	var TotImg = $(".slider > img").length
-	imgCounter(1,TotImg);
-
-	$(".slider").bind("tabselect", function(event, ui){
-		var index = ui.index;
-		var imgNum = index + 1;
-		imgCounter(imgNum, TotImg)
-	});
-
-	function imgCounter(imgNum, imgCounter) {
-		$("#counter").text(imgNum + "/" + TotImg);
-	}
-
-
-
+	
 
 	// show and hide play/pause button
-	$("#play-but").click(slideshow);
+	$("#play-but").click(function(){
+		
+		$("#play-but").hide();
+		$("#pause-but").show();
+		autoSlide = true;
+		hover = true;
 
-	$("#pause-but").click(slideshowPause);	
-	
+		if (!hover) {
+
+		console.log("play");	
+		myTimeout = setTimeout(onPlayClick);
+
+		}
+		
+	});
+
+	$("#pause-but").click(function (){
+		$("#pause-but").hide();
+		$("#play-but").show();
+		autoSlide = false;
+
+			console.log("pause");
+			clearTimeout(myTimeout);
+			console.log("TIMEOUT");
+
+	});
+
+
+	$("#left").mouseleave(function (){
+		hover = false;
+		if (autoSlide){
+
+			setTimeout(onPlayClick);
+
+			console.log("leave");
+
+			}
+
+	});
+
+
+	$("#left").mouseenter(function (){
+
+			hover = true;
+
+			clearTimeout(myTimeout);
+			console.log("Enter");
+			console.log("TIMEOUT");
+
+
+	});
 
 });
